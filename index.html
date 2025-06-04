@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mensagem para Minha Namorada</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #3399ff;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    height: 100vh;
+    margin: 0;
+  }
+  h1 {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
+  .buttons-container {
+    display: grid;
+    grid-template-columns: repeat(2, 150px);
+    gap: 20px 60px;
+  }
+  button {
+    padding: 12px 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #007acc;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #005f99;
+  }
+
+  /* Modal styles */
+  .modal-bg {
+    display: none; /* hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  .modal-content {
+    background: white;
+    color: #333;
+    padding: 25px 30px;
+    border-radius: 8px;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  }
+  .modal-content p {
+    margin: 0 0 20px;
+    font-size: 18px;
+  }
+  .close-btn {
+    background-color: #007acc;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .close-btn:hover {
+    background-color: #005f99;
+  }
+</style>
+</head>
+<body>
+
+<h1>Clique quando se sentir</h1>
+
+<div class="buttons-container">
+  <button id="btnCansada">Cansada</button>
+  <button id="btnSozinha">Sozinha</button>
+  <button id="btnTriste">Triste</button>
+  <button id="btnAutoestima">Autoestima baixa</button>
+</div>
+
+<!-- Modal -->
+<div id="modal" class="modal-bg">
+  <div class="modal-content">
+    <p id="modal-text"></p>
+    <button class="close-btn" id="closeModal">Fechar</button>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById('modal');
+  const modalText = document.getElementById('modal-text');
+  const closeBtn = document.getElementById('closeModal');
+
+  function showMessage(message) {
+    modalText.textContent = message;
+    modal.style.display = 'flex';
+  }
+
+  closeBtn.onclick = function() {
+    modal.style.display = 'none';
+  }
+
+  // Close modal if click outside content
+  window.onclick = function(event) {
+    if(event.target === modal) {
+      modal.style.display = 'none';
+    }
+  }
+
+  document.getElementById('btnCansada').onclick = function() {
+    showMessage("Saiba que todo seu esforço vale a pena, tudo tem um propósito, você é incrível e seu cansaço é passageiro, bola pra frente, estou sempre com você sempre juntos, okay?");
+  };
+
+  document.getElementById('btnTriste').onclick = function() {
+    showMessage("Amor, sei que você não está bem… mas eu tô aqui, te abraçando em pensamento e torcendo pra que seu coração fique mais leve, sempre juntos, okay?");
+  };
+
+  document.getElementById('btnSozinha').onclick = function() {
+    showMessage("Quando você se sentir sozinha, feche os olhos por um instante… porque é aí que eu te abraço em pensamento, bem forte, como se dissesse: 'tô aqui, com você, sempre. sempre juntos, okay?'");
+  };
+
+  document.getElementById('btnAutoestima').onclick = function() {
+    showMessage("Gatinha, eu queria que você pudesse se enxergar pelos meus olhos, ia ver o quanto é linda, mesmo nos dias em que não se sente assim. Sua luz não depende de maquiagem, de roupa, de humor... ela vem de quem você é, e isso é incrível. Eu tô aqui pra te lembrar disso sempre. sempre juntos, okay?");
+  };
+</script>
+
+</body>
+</html>
